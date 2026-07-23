@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+ <title>Mohadeseh Birthday</title>
+ 
+   <style>
+        body{
+    background:#f7d9e3;
+    font-family:Tahoma;
+    text-align:center;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    height:100vh;
+    margin:0;
+}
+
+       h1{
+    color:#b30059;
+    font-size:100px;
+    font-weight:bold;
+    text-align:center;
+    margin:20px 0;
+} 
+
+        p{
+            font-size:20px;
+        }
+
+        button{
+    background:#ff4d94;
+    color:white;
+    border:none;
+    padding:30px 80px;
+    border-radius:20px;
+    font-size:45px;
+    font-weight:bold;
+    cursor:pointer;
+    display:block;
+    margin:0 auto;
+}
+
+        button:hover{
+            background:#e60073;
+        }
+       #result{
+    font-size:50px;
+    font-weight:bold;
+    color:#b30059;
+    text-align:center;
+    margin-top:60px;
+    line-height:2;
+}
+ .floating {
+    position: fixed;
+    top: -50px;
+    font-size: 40px;
+    animation: fall 5s linear infinite;
+    z-index: 10;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+    </style>
+    
+    <script 
+    src="https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.min.js"></script>
+    
+</head>
+
+<body>
+
+<h1 id="title">🌸 خوش آمدی 🌸</h1>
+
+
+<button id="startBtn" onclick="salam()">شروع</button>
+
+<div id="result"></div>
+
+
+
+<script>
+
+function salam() {
+
+    let name = prompt("اسمت چیه؟");
+    
+      let birth = prompt("تاریخ تولدت رو وارد کن (مثلاً 1405/05/20)");
+
+    let cake = prompt("چه طعم کیکی دوست داری؟ (شکلاتی، وانیلی، توت فرنگی)");
+
+    let wish = prompt("چه آرزویی برای تولدت داری؟")
+
+    createFlowers();
+        
+document.getElementById("startBtn").style.display = "none";
+
+
+let birthDate = birth.split("/");
+
+let birthDay = birthDate[2];
+let birthMonth = birthDate[1];
+
+let today = new Date();
+
+let todayJalali = jalaali.toJalaali(
+    today.getFullYear(),
+    today.getMonth()+1,
+    today.getDate()
+);
+
+let todayDay = todayJalali.jd;
+let todayMonth = todayJalali.jm;
+
+
+let birthDayNum = Number(birthDay);
+let birthMonthNum = Number(birthMonth);
+
+let message = "اطلاعات دریافت شد 🌸<br><br>";
+
+if (
+    todayDay == birthDayNum &&
+    todayMonth == birthMonthNum
+) {
+    message += "🎉🎉🎉<br><br>" +
+    "تولدتتتتتت مبارکککککک 🎂<br><br>" +
+    "🎉🎉🎉";
+}
+else {
+    message += "🌸 هنوز تا تولدت مونده.";
+}
+
+document.getElementById("result").innerHTML = message;
+document.getElementById("startBtn").style.display = "none";
+
+let info =
+"🎉 " + name + " وارد شد 🌸<br><br>" +
+name + " کیک " + cake + " را دوست دارد.<br><br>" +
+"آرزوی " + name + " برای تولدش:<br>" +
+wish;
+
+
+ console.log(info);
+
+}
+function createFlowers(){
+
+    let items = ["🌸","🌷","💖","💕","🌹","❤️"];
+
+    for(let i = 0; i < 30; i++){
+
+        let flower = document.createElement("div");
+
+        flower.className = "floating";
+
+        flower.innerHTML = items[Math.floor(Math.random()*items.length)];
+
+        flower.style.left = Math.random()*100 + "vw";
+
+        flower.style.animationDuration =
+        (3 + Math.random()*5) + "s";
+
+        flower.style.fontSize =
+        (20 + Math.random()*40) + "px";
+
+        document.body.appendChild(flower);
+    }
+}
+</script>
+</body>
+</html>
