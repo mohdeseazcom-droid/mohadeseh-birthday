@@ -75,10 +75,8 @@
     }
 }
 
-    </style>
+    </style> 
     
-    <script 
-    src="https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.min.js"></script>
     
 </head>
 
@@ -117,11 +115,11 @@ let birthMonth = birthDate[1];
 
 let today = new Date();
 
-let todayJalali = jalaali.toJalaali(
-    today.getFullYear(),
-    today.getMonth()+1,
-    today.getDate()
-);
+let todayJalali = {
+    jd: today.getDate(),
+    jm: today.getMonth() + 1
+};
+
 
 let todayDay = todayJalali.jd;
 let todayMonth = todayJalali.jm;
