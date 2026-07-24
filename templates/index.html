@@ -49,7 +49,7 @@
         }
        #result{
     fontt-size:50px;
-    fontweight:bold;
+    font-weight:bold;
     color:#b30059;
     text-align:center;
     margin-top:60px;
@@ -115,11 +115,11 @@ let birthMonth = birthDate[1];
 
 let today = new Date();
 
-let todayJalali = {
-     today.getFullYear(),
+let todayJalali = jalaali.toJalaali(
+    today.getFullYear(),
     today.getMonth() + 1,
     today.getDate()
-};
+);
 
 
 let todayDay = todayJalali.jd;
