@@ -48,8 +48,8 @@
             background:#e60073;
         }
        #result{
-    font-size:50px;
-    font-weight:bold;
+    fontt-size:50px;
+    fontweight:bold;
     color:#b30059;
     text-align:center;
     margin-top:60px;
@@ -76,7 +76,7 @@
 }
 
     </style> 
-    
+ <script src="https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.min.js"></script>   
     
 </head>
 
@@ -116,8 +116,9 @@ let birthMonth = birthDate[1];
 let today = new Date();
 
 let todayJalali = {
-    jd: today.getDate(),
-    jm: today.getMonth() + 1
+     today.getFullYear(),
+    today.getMonth() + 1,
+    today.getDate()
 };
 
 
